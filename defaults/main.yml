@@ -2,4 +2,4 @@
 # Variáveis padrão de conexão com banco de dados MySQL/MariaDB usado pelo frontend do Zabbix
 mysql_database: zabbix
 mysql_zabbix_user: zabbix
-mysql_zabbix_password: SenhaZabbix
+mysql_zabbix_password: SenhaZabbix123
