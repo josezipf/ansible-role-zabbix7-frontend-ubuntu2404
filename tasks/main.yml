@@ -1,0 +1,28 @@
+---
+# Tarefas principais da role zabbix7_frontend_ubuntu2404
+# Responsável pela instalação, configuração e ativação do frontend do Zabbix com Apache e PHP
+
+- name: Instalar pacotes do frontend do Zabbix
+  ansible.builtin.apt:
+    name: "{{ zabbix_frontend_packages }}"
+    state: present        # Evita problemas com idempotência (não usa 'latest')
+    update_cache: true    # Atualiza o cache APT antes da instalação
+  become: true
+  notify: Restart Apache  # Caso haja alteração, reinicia o serviço Apache para aplicar mudanças
+
+- name: Configurar o arquivo PHP do frontend do Zabbix
+  ansible.builtin.template:
+    src: zabbix.conf.php.j2                         # Template Jinja2 com as variáveis definidas em vars/
+    dest: /etc/zabbix/web/zabbix.conf.php           # Caminho padrão da configuração do frontend do Zabbix
+    owner: www-data
+    group: www-data
+    mode: '0640'                                     # Permissões seguras para arquivos sensíveis
+  become: true
+  notify: Restart Apache                             # Reinicia o Apache se houver alteração no template
+
+- name: Habilitar e iniciar o serviço Apache
+  ansible.builtin.service:
+    name: apache2
+    state: started                                   # Garante que o serviço esteja rodando
+    enabled: true                                    # Ativa o serviço no boot
+  become: true

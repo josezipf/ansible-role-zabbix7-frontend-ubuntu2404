@@ -1,0 +1,9 @@
+---
+# Teste da role zabbix7_frontend_ubuntu2404
+# Executa localmente simulando a aplicação da role em um host Ubuntu 24.04
+
+- name: Teste da role zabbix7_frontend_ubuntu2404
+  hosts: localhost
+  become: true
+  roles:
+    - role: zabbix7_frontend_ubuntu2404       # Caminho relativo à role

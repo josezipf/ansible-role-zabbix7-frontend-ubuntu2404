@@ -1,0 +1,21 @@
+<?php
+// Arquivo de configuração da interface web do Zabbix
+// Os valores são injetados via Ansible usando variáveis Jinja2
+
+global $DB;
+
+$DB['TYPE']     = 'MYSQL';                        // Tipo de banco de dados (MYSQL, POSTGRES, etc.)
+$DB['SERVER']   = 'localhost';                    // Endereço do servidor de banco de dados
+$DB['PORT']     = '3306';                         // Porta padrão do MySQL
+$DB['DATABASE'] = '{{ mysql_database }}';         // Nome do banco de dados (definido na role do server)
+$DB['USER']     = '{{ mysql_zabbix_user }}';      // Usuário do banco
+$DB['PASSWORD'] = '{{ mysql_zabbix_password }}';  // Senha do banco
+
+$DB['SCHEMA'] = '';                               // Apenas para PostgreSQL e DB2 (não usado aqui)
+
+$ZBX_SERVER      = 'localhost';                   // Endereço do servidor Zabbix
+$ZBX_SERVER_PORT = '10051';                       // Porta do serviço zabbix-server
+$ZBX_SERVER_NAME = 'Zabbix Server';               // Nome exibido na interface
+
+$IMAGE_FORMAT_DEFAULT = IMAGE_FORMAT_PNG;         // Formato padrão de gráficos
+?>

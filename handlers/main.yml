@@ -1,0 +1,9 @@
+---
+# Manipulador responsável por reiniciar o Apache
+# Será chamado pelas tasks que alteram arquivos de configuração
+
+- name: Restart Apache
+  ansible.builtin.service:
+    name: apache2
+    state: restarted
+  become: true

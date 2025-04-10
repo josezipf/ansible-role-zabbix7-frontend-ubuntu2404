@@ -1,0 +1,25 @@
+---
+# Metadados da role zabbix7_frontend_ubuntu2404
+
+galaxy_info:
+  role_name: zabbix7_frontend_ubuntu2404       # Nome correto da role para Galaxy ou uso interno
+  author: josezipf                             # Seu nome como autor
+  description: Instala e configura o frontend do Zabbix 7 no Ubuntu 24.04 com Apache e PHP 8.3
+  company: Nototi                              # Sua empresa ou marca (ajuste conforme necessário)
+  license: MIT                                 # Licença apropriada para seu projeto
+  min_ansible_version: "2.10"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - "noble"
+
+  galaxy_tags:
+    - zabbix
+    - frontend
+    - apache
+    - php
+    - monitoring
+    - ubuntu
+
+dependencies: []

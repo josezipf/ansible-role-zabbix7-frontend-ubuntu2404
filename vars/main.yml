@@ -1,0 +1,19 @@
+---
+# Variáveis padrão da role zabbix7_frontend_ubuntu2404
+# Ajuste conforme necessário para sua instalação e ambiente
+
+# Lista de pacotes necessários para o frontend do Zabbix funcionar corretamente com Apache e PHP 8.3
+zabbix_frontend_packages:
+  - zabbix-frontend-php        # Interface web do Zabbix
+  - zabbix-apache-conf         # Arquivo de configuração do Apache para o Zabbix
+  - php8.3                     # PHP principal
+  - php8.3-mysql               # Conexão do PHP com o MySQL/MariaDB
+  - php8.3-gd                  # Suporte gráfico (gráficos do Zabbix)
+  - php8.3-bcmath              # Operações matemáticas no backend
+  - php8.3-mbstring            # Suporte a strings multibyte
+  - php8.3-xml                 # Manipulação de XML
+  - php8.3-ldap                # Caso utilize autenticação LDAP no frontend
+
+# Timezone usado pela interface web do Zabbix
+# Altere conforme o fuso horário do servidor
+php_timezone: "America/Sao_Paulo"
